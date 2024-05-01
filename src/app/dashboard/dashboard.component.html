@@ -1,0 +1,7 @@
+<h2 class="text-center mb-4">Dashboard</h2>
+<div class="w-full flex flex-row flex-wrap justify-center gap-4">
+    
+    @for (hero of heroes; track hero) {
+        <a class="bg-indigo-600 text-slate-50 p-4 text-xl" [routerLink]="">{{hero.name}}</a>
+    }
+</div>

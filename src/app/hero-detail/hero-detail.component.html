@@ -1,0 +1,11 @@
+@if (hero) {
+
+    <h2>{{hero.name | uppercase }} Details</h2>
+    <div class=""><span>{{hero.id}}</span></div>
+    <div class="">
+        <label for="name">Hero name:</label>
+        <input type="text" [(ngModel)]="hero.name" name="name" id="name">
+    </div>
+    <button type="button" class="bg-indigo-600 text-slate-200 p-2 rounded" (click)="goBack()">Go Back</button>
+
+}

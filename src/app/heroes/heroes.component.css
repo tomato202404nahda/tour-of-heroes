@@ -1,0 +1,46 @@
+.heroes {
+    @apply mb-8 list-none p-0 w-1/2
+}
+
+.heroes li {
+    @apply flex flex-row
+}
+
+.heroes button{
+    @apply flex flex-1
+    relative cursor-pointer
+    left-0
+    bg-[#eee]
+    m-2
+    p-0
+    pr-2
+    rounded-[4px]
+    h-7
+    hover:text-[#2c3a41] hover:bg-[#e6e6e6]
+    hover:left-[0.1rem]
+
+    active:bg-[#525252] active:text-[#fafafa]
+}
+
+.heroes button.selected {
+    @apply bg-black text-white
+    hover:bg-[#505050] hover:text-white
+    active:bg-black active:text-white
+}
+
+
+.heroes .badge {
+    @apply inline-block
+    text-sm
+    text-white
+    pr-3 pl-3 pt-[0.375rem] pb-[0.375rem]
+    leading-4
+    align-middle
+    mr-3
+    bg-[#405061]
+    rounded-[4px] rounded-r-none
+}
+
+.heroes .name {
+    @apply self-center
+}

@@ -1,0 +1,20 @@
+<div class="flex flex-row w-full text-center">
+    
+    <div class="w-full flex flex-col">
+        <h2>My Heroes</h2>
+    
+        <ul class="heroes flex flex-row justify-center mx-auto flex-wrap w-full">
+            @for(hero of heroes; track hero ){
+                <li>
+                    <a [routerLink]="['/detail',hero.id ]">
+                        <button [class.selected]="hero === selectedHero" type="button">
+                            <span class="badge">{{hero.id}}</span>
+                            <span class="name">{{hero.name}}</span>
+                        </button>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+</div>

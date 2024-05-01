@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    @apply m-8
+}
+
+h1{
+    @apply text-[#369] font-sans text-[250%]
+}
+
+h2, h3 {
+    @apply text-[#444] font-sans font-light
+
+}
+
+h2{
+    @apply text-[200%]
+}
+h3{
+    @apply text-[150%]
+}
+
+body, input[type="text"]{
+    @apply text-[#333] font-serif
+}
+input[type="text"]{
+    @apply ml-2 p-2
+}
+
+button {
+    @apply 
+    bg-[#eee] 
+    rounded 
+    cursor-pointer 
+    border-none 
+    text-black
+    text-xl
+    p-4
+    m-4
+    hover:bg-black hover:text-white
+    disabled:bg-[#eee] disabled:text-[#aaa] disabled:cursor-auto
+}
+
+* {
+    @apply font-sans
+     
+}

@@ -1,0 +1,9 @@
+h2 {
+    @apply text-[#a80000] font-sans font-light
+}
+
+.clear{
+    @apply text-[#333] bg-[#eee]
+    mb-3 p-4 rounded text-sm
+    hover:text-white hover:bg-[#42545c]
+}
