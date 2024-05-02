@@ -50,7 +50,6 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes() {
-    this.doneLoading = false;
     this.heroService.Heroes.subscribe((heroes) => {
       this.heroes = heroes;
       this.doneLoading = true;
@@ -58,23 +57,28 @@ export class HeroesComponent implements OnInit {
   }
 
   addHero(heroName: string) {
+    this.doneLoading = false;
     const name = heroName.trim();
     if (!name) {
       return;
     }
-    this.heroService
-      .addHero({ name } as Hero)
-      .subscribe
+    this.heroService.addHero({ name } as Hero).subscribe(
       /*  (hero: Hero) => {
       return this.heroes.push(hero);
     } */
-      ();
+      () => {
+        this.doneLoading = true;
+      }
+    );
     this.modalClosed = true;
     this.getHeroes();
   }
 
   delete(hero: Hero) {
-    this.heroService.deleteHero(hero.id).subscribe();
+    this.doneLoading = false;
+    this.heroService.deleteHero(hero.id).subscribe((_) => {
+      this.doneLoading = true;
+    });
     this.getHeroes();
   }
 }

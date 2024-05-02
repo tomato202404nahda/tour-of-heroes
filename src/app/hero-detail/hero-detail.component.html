@@ -1,6 +1,4 @@
-@if(!doneLoading){
-<ng-lottie [width]="'20vw'" [options]="options"></ng-lottie>
-} @else { @if (hero) {
+@if (hero) {
 
 <h2>{{ hero.name | uppercase }} Details</h2>
 <div class="">
@@ -25,4 +23,6 @@
     Go Back
   </button>
 </div>
-} }
+} @else {
+<ng-lottie [width]="'20vw'" [options]="options"></ng-lottie>
+}

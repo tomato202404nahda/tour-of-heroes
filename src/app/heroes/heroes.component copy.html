@@ -3,7 +3,9 @@
     <h2>My Heroes</h2>
 
     <ul class="heroes flex flex-row justify-center mx-auto flex-wrap w-full">
-      @for(hero of heroes; track hero ){
+      @if(!doneLoading){
+      <ng-lottie [width]="'20vw'" [options]="options"></ng-lottie>
+      } @else { @for(hero of heroes; track hero ){
       <li>
         <a [routerLink]="['/detail', hero.id]">
           <button [class.selected]="hero === selectedHero" type="button">
@@ -13,17 +15,8 @@
         </a>
         <button class="delete" (click)="delete(hero)">X</button>
       </li>
-      } @empty { @if (doneLoading) {
-      <p>There are currently no heroes</p>
-      } @else {
-      <ng-lottie [width]="'20vw'" [options]="options"></ng-lottie>
       } }
     </ul>
-    @if (!doneLoading) {
-    <div class="mx-auto">
-      <ng-lottie [width]="'20vw'" [options]="options"></ng-lottie>
-    </div>
-    }
     <button class="max-w-[20%] md:max-w-[10%] mx-auto" (click)="openModal()">
       Add Hero
     </button>

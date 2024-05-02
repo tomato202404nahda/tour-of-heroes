@@ -18,7 +18,7 @@ export class DashboardComponent {
     path: '/assets/Animation - 1714629086811.json',
   };
 
-  doneLoading: boolean = false;
+  doneLoading: boolean = true;
 
   constructor(private heroService: HeroService) {}
 

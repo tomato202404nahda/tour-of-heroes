@@ -1,12 +1,14 @@
 <h2 class="text-center mb-4">Dashboard</h2>
 <div class="w-full flex flex-row flex-wrap justify-center gap-4">
-  @if(!doneLoading){
-  <ng-lottie [width]="'30vw'" [options]="options"></ng-lottie>
-  } @else { @for (hero of heroes; track hero) {
+  @for (hero of heroes; track hero) {
   <a
     class="bg-indigo-600 text-slate-50 p-4 text-xl"
     [routerLink]="['/detail', hero.id]"
     >{{ hero.name }}</a
   >
+  } @empty{ @if (doneLoading) {
+  <p>There are currently no heroes</p>
+  } @else {
+  <ng-lottie [width]="'20vw'" [options]="options"></ng-lottie>
   } }
 </div>
