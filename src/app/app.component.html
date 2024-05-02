@@ -1,7 +1,19 @@
-<h1>{{title}}</h1>
-<nav class="flex flex-row justify-center gap-4">
-  <a class="max-w-1/2 p-2 rounded bg-slate-600 text-white hover:bg-black hover:scale-110 transition-all ease-in-out" [routerLink]="['dashboard']">Dashboard</a>
-  <a class="max-w-1/2 p-2 rounded bg-slate-600 text-white hover:bg-black hover:scale-110 transition-all ease-in-out" [routerLink]="['heroes']">Heroes</a>
-</nav>
+<div class="flex flex-row items-center justify-between">
+  <h1 class="cursor-pointer" [routerLink]="['/']">{{ title }}</h1>
+  <div class="flex justify-end">
+    <nav class="flex flex-row justify-center gap-4">
+      <a
+        class="max-w-1/2 p-2 rounded bg-slate-600 text-white hover:bg-black hover:scale-110 transition-all ease-in-out"
+        [routerLink]="['dashboard']"
+        >Dashboard</a
+      >
+      <a
+        class="max-w-1/2 p-2 rounded bg-slate-600 text-white hover:bg-black hover:scale-110 transition-all ease-in-out"
+        [routerLink]="['heroes']"
+        >Heroes</a
+      >
+    </nav>
+  </div>
+</div>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

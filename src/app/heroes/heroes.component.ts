@@ -5,44 +5,76 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { HeroService } from '../hero.service';
-import { HeroDetailComponent } from "../hero-detail/hero-detail.component";
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { MessageService } from '../message.service';
 import { RouterLink } from '@angular/router';
+import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 
 @Component({
-    selector: 'app-heroes',
-    standalone: true,
-    templateUrl: './heroes.component.html',
-    styleUrl: './heroes.component.css',
-    imports: [
-        CommonModule,
-        FormsModule,
-        HeroDetailComponent,
-        RouterLink
-    ]
+  selector: 'app-heroes',
+  standalone: true,
+  templateUrl: './heroes.component.html',
+  styleUrl: './heroes.component.css',
+  imports: [
+    CommonModule,
+    FormsModule,
+    HeroDetailComponent,
+    RouterLink,
+    LottieComponent,
+  ],
 })
 export class HeroesComponent implements OnInit {
   heroes?: Hero[];
   selectedHero: Hero | undefined;
-  
-  constructor(private messageService: MessageService ,private heroService: HeroService){
-    
-  }
+  modalClosed: boolean = true;
+  options: AnimationOptions = {
+    path: '/assets/Animation - 1714629086811.json',
+  };
 
+  doneLoading: boolean = false;
+  constructor(
+    private messageService: MessageService,
+    private heroService: HeroService
+  ) {}
+
+  openModal() {
+    this.modalClosed = !this.modalClosed;
+  }
   onSelect(hero: Hero) {
     this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`)
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
-  
-  ngOnInit(){
+
+  ngOnInit() {
     this.getHeroes();
   }
-  
-  getHeroes(){
-    this.heroService.Heroes.subscribe(
-      heroes => {
-          this.heroes=heroes;
-      }
-  );
+
+  getHeroes() {
+    this.doneLoading = false;
+    this.heroService.Heroes.subscribe((heroes) => {
+      this.heroes = heroes;
+      this.doneLoading = true;
+    });
+  }
+
+  addHero(heroName: string) {
+    const name = heroName.trim();
+    if (!name) {
+      return;
+    }
+    this.heroService
+      .addHero({ name } as Hero)
+      .subscribe
+      /*  (hero: Hero) => {
+      return this.heroes.push(hero);
+    } */
+      ();
+    this.modalClosed = true;
+    this.getHeroes();
+  }
+
+  delete(hero: Hero) {
+    this.heroService.deleteHero(hero.id).subscribe();
+    this.getHeroes();
   }
 }

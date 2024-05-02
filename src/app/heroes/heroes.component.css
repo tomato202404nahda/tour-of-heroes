@@ -1,13 +1,13 @@
 .heroes {
-    @apply mb-8 list-none p-0 w-1/2
+  @apply mb-8 list-none p-0 w-1/2;
 }
 
 .heroes li {
-    @apply flex flex-row
+  @apply flex flex-row;
 }
 
-.heroes button{
-    @apply flex flex-1
+.heroes button {
+  @apply flex flex-1
     relative cursor-pointer
     left-0
     bg-[#eee]
@@ -19,18 +19,17 @@
     hover:text-[#2c3a41] hover:bg-[#e6e6e6]
     hover:left-[0.1rem]
 
-    active:bg-[#525252] active:text-[#fafafa]
+    active:bg-[#525252] active:text-[#fafafa];
 }
 
 .heroes button.selected {
-    @apply bg-black text-white
+  @apply bg-black text-white
     hover:bg-[#505050] hover:text-white
-    active:bg-black active:text-white
+    active:bg-black active:text-white;
 }
 
-
 .heroes .badge {
-    @apply inline-block
+  @apply inline-block
     text-sm
     text-white
     pr-3 pl-3 pt-[0.375rem] pb-[0.375rem]
@@ -38,9 +37,17 @@
     align-middle
     mr-3
     bg-[#405061]
-    rounded-[4px] rounded-r-none
+    rounded-[4px] rounded-r-none;
 }
 
 .heroes .name {
-    @apply self-center
+  @apply self-center;
+}
+
+input[type="text"] {
+  @apply ml-0;
+}
+
+.heroes button.delete {
+  @apply inline-flex flex-col align-middle justify-center text-center bg-rose-700 text-white p-2 box-border rounded-full;
 }

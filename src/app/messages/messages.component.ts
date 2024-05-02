@@ -6,10 +6,8 @@ import { MessageService } from '../message.service';
   standalone: true,
   imports: [],
   templateUrl: './messages.component.html',
-  styleUrl: './messages.component.css'
+  styleUrl: './messages.component.css',
 })
 export class MessagesComponent {
-  constructor(public messageService: MessageService){
-
-  }
+  constructor(public messageService: MessageService) {}
 }

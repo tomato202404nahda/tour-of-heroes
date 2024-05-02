@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { HeroesComponent } from "./heroes/heroes.component";
-import { MessagesComponent } from "./messages/messages.component";
+import { HeroesComponent } from './heroes/heroes.component';
+import { MessagesComponent } from './messages/messages.component';
+import { LottieComponent } from 'ngx-lottie';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
-    imports: [RouterOutlet, HeroesComponent, MessagesComponent, RouterLink]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  imports: [RouterOutlet, HeroesComponent, MessagesComponent, RouterLink],
 })
 export class AppComponent {
   title = 'Tour of Heroes';
