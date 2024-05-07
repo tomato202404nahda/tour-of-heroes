@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Hero } from '../hero';
 import { CommonModule } from '@angular/common';
@@ -9,6 +9,8 @@ import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { MessageService } from '../message.service';
 import { RouterLink } from '@angular/router';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
+import { HeroFormComponent } from '../hero-form/hero-form.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-heroes',
@@ -21,6 +23,7 @@ import { AnimationOptions, LottieComponent } from 'ngx-lottie';
     HeroDetailComponent,
     RouterLink,
     LottieComponent,
+    HeroFormComponent,
   ],
 })
 export class HeroesComponent implements OnInit {
@@ -31,7 +34,10 @@ export class HeroesComponent implements OnInit {
     path: '/assets/Animation - 1714629086811.json',
   };
 
+  heroAddedSubscription: Subscription;
+
   doneLoading: boolean = false;
+  addingOrDeleting: boolean = false;
   constructor(
     private messageService: MessageService,
     private heroService: HeroService
@@ -39,6 +45,9 @@ export class HeroesComponent implements OnInit {
 
   openModal() {
     this.modalClosed = !this.modalClosed;
+  }
+  closeModal() {
+    this.modalClosed = true;
   }
   onSelect(hero: Hero) {
     this.selectedHero = hero;
@@ -56,18 +65,21 @@ export class HeroesComponent implements OnInit {
     });
   }
 
-  addHero(heroName: string) {
-    this.doneLoading = false;
-    const name = heroName.trim();
-    if (!name) {
+  addHero(hero: Hero) {
+    this.addingOrDeleting = true;
+
+    if (!hero) {
       return;
     }
-    this.heroService.addHero({ name } as Hero).subscribe(
+    const name = hero.name;
+    const alter_ego = hero.alter_ego;
+    const power = hero.power;
+    this.heroService.addHero({ name, alter_ego, power } as Hero).subscribe(
       /*  (hero: Hero) => {
       return this.heroes.push(hero);
     } */
       () => {
-        this.doneLoading = true;
+        this.addingOrDeleting = false;
       }
     );
     this.modalClosed = true;
@@ -75,9 +87,9 @@ export class HeroesComponent implements OnInit {
   }
 
   delete(hero: Hero) {
-    this.doneLoading = false;
-    this.heroService.deleteHero(hero.id).subscribe((_) => {
-      this.doneLoading = true;
+    this.addingOrDeleting = true;
+    this.heroService.deleteHero(hero.id).subscribe(() => {
+      this.addingOrDeleting = false;
     });
     this.getHeroes();
   }

@@ -5,6 +5,7 @@ import { Hero } from '../hero';
 import { ActivatedRoute } from '@angular/router';
 import { HeroService } from '../hero.service';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
+import { powerList } from '../power';
 
 @Component({
   selector: 'app-hero-detail',
@@ -35,6 +36,7 @@ export class HeroDetailComponent implements OnInit {
       this.doneLoading = true;
     });
   }
+  powers: string[] = powerList();
 
   save() {
     if (this.hero) {

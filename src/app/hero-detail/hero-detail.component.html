@@ -5,8 +5,35 @@
   <span>{{ hero.id }}</span>
 </div>
 <div class="">
-  <label for="name">Hero name:</label>
-  <input type="text" [(ngModel)]="hero.name" name="name" id="name" />
+  <div class="flex flex-col">
+    <div>
+      <label for="name">Hero name:</label>
+      <input type="text" [(ngModel)]="hero.name" name="name" id="name" />
+    </div>
+    <div>
+      <label for="name">Alter Ego:</label>
+      <input
+        type="text"
+        [(ngModel)]="hero.alter_ego"
+        name="alterEgo"
+        id="alterEgo"
+      />
+    </div>
+    <div class="flex flex-col">
+      <label for="power">Hero Power</label>
+      <select
+        class="m-2 rounded p-2 border-2 border-sky-500"
+        [(ngModel)]="hero.power"
+        id="power"
+        name="power"
+        required
+      >
+        @for (pow of powers; track $index) {
+        <option [selected]="pow === hero.power" [value]="pow">{{ pow }}</option>
+        }
+      </select>
+    </div>
+  </div>
   <div class="flex flex-row justify-evenly w-full"></div>
   <button
     (click)="save()"
