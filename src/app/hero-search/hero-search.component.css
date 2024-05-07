@@ -11,14 +11,17 @@ input {
     w-full
     max-w-xl
     box-border
-    block;
+    block
+
+    rounded-e-xl
+    bg-slate-200;
 }
 
 input:focus {
   @apply outline-1
     outline-[#336699]
     scale-[100.5%]
-    transition-transform
+    transition-all
     duration-300
     ease-in-out;
 }
@@ -48,5 +51,6 @@ li {
 }
 
 ul.search-result {
-  @apply mt-0 pl-2;
+  @apply mt-0 pl-2
+    rounded-e-xl;
 }

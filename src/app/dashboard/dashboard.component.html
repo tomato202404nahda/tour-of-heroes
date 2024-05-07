@@ -1,8 +1,9 @@
 <h2 class="text-center mb-4">Dashboard</h2>
-<div class="w-full flex flex-row flex-wrap justify-center gap-4">
+<h3 class="w-full text-slate-700 lato-regular text-center">Notable Heroes</h3>
+<div class="w-full flex flex-row flex-wrap justify-center gap-20 mt-8">
   @for (hero of heroes; track hero) {
   <a
-    class="bg-indigo-600 text-slate-50 p-4 text-xl"
+    class="bg-indigo-600 text-slate-50 p-4 rounded-md text-xl hover:scale-105 hover:bg-black hover:text-slate-100 transition-all duration-300 ease-in-out"
     [routerLink]="['/detail', hero.id]"
     >{{ hero.name }}</a
   >

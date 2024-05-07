@@ -1,18 +1,25 @@
 @if (hero) {
 
-<h2>{{ hero.name | uppercase }} Details</h2>
+<h2 class="text-2xl font-bold">{{ hero.name | uppercase }} Details</h2>
 <div class="">
-  <span>{{ hero.id }}</span>
+  Hero ID: <span class="font-black text-xl">{{ hero.id }}</span>
 </div>
 <div class="">
-  <div class="flex flex-col">
+  <div class="flex flex-col gap-4">
     <div>
       <label for="name">Hero name:</label>
-      <input type="text" [(ngModel)]="hero.name" name="name" id="name" />
+      <input
+        class="bg-slate-100 ml-2 rounded-md"
+        type="text"
+        [(ngModel)]="hero.name"
+        name="name"
+        id="name"
+      />
     </div>
     <div>
       <label for="name">Alter Ego:</label>
       <input
+        class="bg-slate-100 ml-2 rounded-md"
         type="text"
         [(ngModel)]="hero.alter_ego"
         name="alterEgo"
@@ -22,7 +29,7 @@
     <div class="flex flex-col">
       <label for="power">Hero Power</label>
       <select
-        class="m-2 rounded p-2 border-2 border-sky-500"
+        class="m-2 ml-0 rounded p-2 border-2 bg-slate-100"
         [(ngModel)]="hero.power"
         id="power"
         name="power"
