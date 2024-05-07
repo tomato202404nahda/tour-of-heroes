@@ -3,13 +3,14 @@ import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
 import { RouterLink } from '@angular/router';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
+import { HeroSearchComponent } from '../hero-search/hero-search.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterLink, LottieComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
+  imports: [RouterLink, LottieComponent, HeroSearchComponent],
 })
 export class DashboardComponent {
   heroes: Hero[] = [];
