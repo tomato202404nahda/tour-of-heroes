@@ -1,39 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .lato-thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
 
-body{
-    @apply m-8
+  .lato-light {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .lato-bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .lato-black {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  .lato-thin-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+
+  .lato-light-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .lato-regular-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .lato-bold-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .lato-black-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+
+  .cinzel {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 }
 
-h1{
-    @apply text-[#369] font-sans text-[250%]
+body {
+  @apply m-8;
 }
 
-h2, h3 {
-    @apply text-[#444] font-sans font-light
-
+h1 {
+  @apply text-[#369] cinzel text-[250%];
 }
 
-h2{
-    @apply text-[200%]
-}
-h3{
-    @apply text-[150%]
+h2,
+h3 {
+  @apply text-[#444] cinzel font-light;
 }
 
-body, input[type="text"]{
-    @apply text-[#333] font-serif
+h2 {
+  @apply text-[200%];
 }
-input[type="text"]{
-    @apply ml-2 p-2
+h3 {
+  @apply text-[150%];
+}
+
+body,
+input[type="text"] {
+  @apply text-[#333] lato-regular;
+}
+input[type="text"] {
+  @apply p-2;
 }
 
 button {
-    @apply 
-    bg-[#eee] 
+  @apply bg-[#eee] 
     rounded 
     cursor-pointer 
     border-none 
@@ -42,10 +112,9 @@ button {
     p-4
     m-4
     hover:bg-black hover:text-white
-    disabled:bg-[#eee] disabled:text-[#aaa] disabled:cursor-auto
+    disabled:bg-[#eee] disabled:text-[#aaa] disabled:cursor-auto;
 }
 
 * {
-    @apply font-sans
-     
+  @apply cinzel;
 }

@@ -1,0 +1,56 @@
+label {
+  @apply block 
+    font-bold
+    text-lg
+    mt-4
+    mb-2;
+}
+
+input {
+  @apply p-2
+    w-full
+    max-w-xl
+    box-border
+    block
+
+    rounded-e-xl
+    bg-slate-200;
+}
+
+input:focus {
+  @apply outline-1
+    outline-[#336699]
+    scale-[100.5%]
+    transition-all
+    duration-300
+    ease-in-out;
+}
+
+li {
+  @apply list-none;
+}
+
+.search-result li a {
+  @apply border-b-2
+    border-b-gray-600
+    border-l-2
+    border-l-gray-600
+    border-r-2
+    border-r-gray-600
+    inline-block
+    w-full
+    max-w-xl
+    box-border
+    p-2
+    text-black;
+}
+
+.search-result li a:hover {
+  @apply bg-[#435A60]
+    text-white;
+}
+
+ul.search-result {
+  @apply mt-0 pl-2
+    rounded-e-xl;
+}

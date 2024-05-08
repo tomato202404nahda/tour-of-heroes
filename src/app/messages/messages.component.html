@@ -1,12 +1,16 @@
 @if (messageService.messages.length) {
-    <h2>Messages</h2>
-    <button type="button" class="clear" (click)="messageService.clear()">
-        clear
-    </button>
-    <div>
 
-        @for(message of messageService.messages; track message){
-            {{message}}    
-        }
-    </div>
+<h2>Messages</h2>
+<div class="flex flex-wrap justify-start">
+  <button type="button" class="clear" (click)="messageService.clear()">
+    Clear
+  </button>
+</div>
+<div>
+  @for(message of messageService.messages; track message){
+  <div class="flex flex-col">
+    {{ message }}
+  </div>
+  }
+</div>
 }

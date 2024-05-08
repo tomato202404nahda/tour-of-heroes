@@ -1,11 +1,62 @@
 @if (hero) {
 
-    <h2>{{hero.name | uppercase }} Details</h2>
-    <div class=""><span>{{hero.id}}</span></div>
-    <div class="">
-        <label for="name">Hero name:</label>
-        <input type="text" [(ngModel)]="hero.name" name="name" id="name">
+<h2 class="text-2xl font-bold">{{ hero.name | uppercase }} Details</h2>
+<div class="">
+  Hero ID: <span class="font-black text-xl">{{ hero.id }}</span>
+</div>
+<div class="">
+  <div class="flex flex-col gap-4">
+    <div>
+      <label for="name">Hero name:</label>
+      <input
+        class="bg-slate-100 ml-2 rounded-md"
+        type="text"
+        [(ngModel)]="hero.name"
+        name="name"
+        id="name"
+      />
     </div>
-    <button type="button" class="bg-indigo-600 text-slate-200 p-2 rounded" (click)="goBack()">Go Back</button>
-
+    <div>
+      <label for="name">Alter Ego:</label>
+      <input
+        class="bg-slate-100 ml-2 rounded-md"
+        type="text"
+        [(ngModel)]="hero.alter_ego"
+        name="alterEgo"
+        id="alterEgo"
+      />
+    </div>
+    <div class="flex flex-col">
+      <label for="power">Hero Power</label>
+      <select
+        class="m-2 ml-0 rounded p-2 border-2 bg-slate-100"
+        [(ngModel)]="hero.power"
+        id="power"
+        name="power"
+        required
+      >
+        @for (pow of powers; track $index) {
+        <option [selected]="pow === hero.power" [value]="pow">{{ pow }}</option>
+        }
+      </select>
+    </div>
+  </div>
+  <div class="flex flex-row justify-evenly w-full"></div>
+  <button
+    (click)="save()"
+    type="button"
+    class="bg-indigo-600 text-slate-100 p-2 rounded"
+  >
+    Save
+  </button>
+  <button
+    type="button"
+    class="bg-slate-600 text-slate-200 p-2 rounded"
+    (click)="goBack()"
+  >
+    Go Back
+  </button>
+</div>
+} @else {
+<ng-lottie [width]="'20vw'" [options]="options"></ng-lottie>
 }
